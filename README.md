@@ -101,9 +101,3 @@ http://127.0.0.1:8000/index_gitdata/
 ```
 python src/testing.py 
 ```
-## Author
-
-Contributor details and contact info
-
-Chandana Dayapule  
-(https://www.linkedin.com/in/chandanad/)
