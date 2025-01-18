@@ -48,7 +48,10 @@ async def handle_query(query_model: QueryModel):
         user_output   = QueryGenerator().invoke(context=context)
         agent_obj     = AgentResponse(query=query, user_output=user_output, documents=context.docs,)
         logger.info("Successfully processed the query.")
-        return agent_obj
+        if r_decision.is_vectordb: 
+            return {"response": agent_obj, "router_decision": "Vector_DB"}
+        else: 
+            return {"response": agent_obj, "router_decision": r_decision}
     except Exception as e:
         logger.error("Error processing the query: %s", e)
         raise HTTPException(status_code=500, detail="Internal Server Error")
